@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "esModuleInterop": true,
+        "strict": true,
+        "lib": [
+            "ESNext",
+        ]
+    },
+    "include": [
+        "./**/*.ts"
+    ],
+}

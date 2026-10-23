@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img-blur"></div>
+        <div class="img"></div>
+        <div class="text">{{text}}</div>
+    </div>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .img-blur {
+            background-image: url('{{src}}');
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            position: absolute;
+            inset: -30px;
+            filter: blur(10px);
+        }
+        .img {
+            background-image: url('{{src}}');
+            background-size: contain;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            position: absolute;
+            inset: 0;
+        }
+        .text {
+            position: relative;
+            z-index: 2;
+            font-family: 'impact';
+            -webkit-text-stroke: 2px black;
+            color: #fff;
+            font-size: 70px;
+            line-height: 1.1;
+            text-align: center;
+            padding-bottom: 50px;
+            padding-left: 35px;
+            padding-right: 35px;
+            white-space-collapse: preserve;
+        }
+    </style>
+    <script>
+        (() => {
+            const containerEl = document.querySelector('.container');
+            containerEl.style.width = '{{width}}px';
+            containerEl.style.height = '{{height}}px';
+
+            const textEl = document.querySelector('.text');
+            textEl.style.overflow = 'auto';
+            if (textEl.scrollWidth > textEl.offsetWidth) {
+                textEl.style.wordBreak = 'break-word';
+            } else {
+                const h0 = textEl.offsetHeight;
+                let w = 100;
+                for (let i = w; i > 0; i--) {
+                    textEl.style.width = i + '%';
+                    if (
+                        (textEl.offsetHeight > h0) ||
+                        (textEl.scrollWidth > textEl.offsetWidth) ||
+                        (textEl.scrollHeight > textEl.offsetHeight)
+                    ) {
+                        w = i + 1;
+                        break;
+                    }
+                }
+                textEl.style.width = w + '%';
+                textEl.style.overflow = '';
+            }
+        })();
+    </script>
+</body>
+</html>

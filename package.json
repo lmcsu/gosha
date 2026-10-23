@@ -1,0 +1,33 @@
+{
+    "name": "gosha",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "dependencies": {
+        "@grammyjs/auto-retry": "^2.0.2",
+        "@grammyjs/files": "^1.1.1",
+        "@grammyjs/transformer-throttler": "^1.2.1",
+        "axios": "^1.7.3",
+        "grammy": "^1.28.0",
+        "openai": "^6.38.0",
+        "p-retry": "^6.2.0",
+        "puppeteer": "^22.15.0",
+        "replicate": "^0.32.0",
+        "sharp": "^0.33.5",
+        "tsx": "^4.16.5",
+        "typescript": "^5.5.4"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.8.0",
+        "@stylistic/eslint-plugin": "^2.6.1",
+        "@types/node": "^22.1.0",
+        "eslint": "^9.8.0",
+        "eslint-define-config": "^2.1.0",
+        "globals": "^15.9.0",
+        "typescript-eslint": "^8.0.0"
+    },
+    "scripts": {
+        "start": "tsx ./index.ts",
+        "lint": "eslint ."
+    }
+}
